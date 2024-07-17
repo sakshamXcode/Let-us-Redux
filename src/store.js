@@ -26,7 +26,7 @@ switch(action.type)
     return state;
 }
 }
-function customerReducer(state,action)
+function customerReducer(state=initialStateCustomer,action)
 {
     switch(action.type)
 {
