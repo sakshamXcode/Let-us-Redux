@@ -2,18 +2,14 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deposit, payLoan, requestLoan, withdraw } from "./accountSlice";
 
-function AccountOperations()
- {
+function AccountOperations() {
   const [depositAmount, setDepositAmount] = useState("");
   const [withdrawalAmount, setWithdrawalAmount] = useState("");
   const [loanAmount, setLoanAmount] = useState("");
   const [loanPurpose, setLoanPurpose] = useState("");
   const [currency, setCurrency] = useState("USD");
-  const dispatch = useDispatch();
-  
-  const b=useSelector((store)=>store.account);
-  console.log(b);
 
+  const dispatch = useDispatch();
   const {
     loan: currentLoan,
     loanPurpose: currentLoanPurpose,
@@ -104,14 +100,9 @@ function AccountOperations()
         {currentLoan > 0 && (
           <div>
             <span>
-             <h4>
-               Pay back ${currentLoan} 
-              </h4>
+              Pay back ${currentLoan} ({currentLoanPurpose})
             </span>
             <button onClick={handlePayLoan}>Pay loan</button>
-           <h4>
-             ({currentLoanPurpose})
-            </h4>
           </div>
         )}
       </div>
